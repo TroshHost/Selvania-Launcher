@@ -123,7 +123,7 @@ class Login {
 
 
             if (mailInput.value == "") {
-                infoLogin.innerHTML = "Entrez votre adresse email / Nom d'utilisateur"
+                infoLogin.innerHTML = "Entrez votre nom d'utilisateur"
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
@@ -131,14 +131,6 @@ class Login {
                 return
             }
 
-            if (passwordInput.value == "") {
-                infoLogin.innerHTML = "Entrez votre mot de passe"
-                cancelMojangBtn.disabled = false;
-                loginBtn.disabled = false;
-                mailInput.disabled = false;
-                passwordInput.disabled = false;
-                return
-            }
 
             let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
 
@@ -206,12 +198,12 @@ class Login {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
-            passwordInput.disabled = true;
+            //passwordInput.disabled = true;
             infoLogin.innerHTML = "Connexion en cours...";
 
 
             if (mailInput.value == "") {
-                infoLogin.innerHTML = "Entrez votre adresse email / Nom d'utilisateur"
+                infoLogin.innerHTML = "Entrez votre nom d'utilisateur"
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
@@ -228,7 +220,7 @@ class Login {
                 return
             }
 
-            let account_connect = await Mojang.login(mailInput.value, passwordInput.value)
+            let account_connect = await Mojang.login(mailInput.value, null)
 
             if (account_connect == null || account_connect.error) {
                 console.log(err)

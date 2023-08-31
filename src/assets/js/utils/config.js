@@ -23,6 +23,7 @@ class Config {
 
     async GetNews() {
         let rss = await fetch(news);
+        console.log(rss)
         if (rss.status === 200) {
             try {
                 let news = await rss.json();
